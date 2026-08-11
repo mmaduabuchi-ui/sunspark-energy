@@ -6,35 +6,35 @@ export default function ServicesPage() {
       id: 1,
       title: "Bifacial Solar Panel Installation",
       description: "Advanced bifacial solar panels that capture sunlight from both sides for maximum energy generation. Perfect for residential and commercial applications.",
-      image: "/Services/bifacialsolar panel.jpg",
+      image: "/services/bifacialsolar-panel.jpg",
       features: ["Dual-sided energy capture", "Up to 30% more efficiency", "Premium quality", "25-year warranty"]
     },
     {
       id: 2,
       title: "Smart Solar Solutions",
       description: "Intelligent solar energy systems with smart monitoring and optimization features for maximum power output and energy savings.",
-      image: "/Services/Gemini_Generated_Image_dtglwpdtglwpdtgl.png",
+      image: "/services/Gemini_Generated_Image_dtglwpdtglwpdtgl.png",
       features: ["Smart monitoring", "AI optimization", "Energy storage ready", "Remote access"]
     },
     {
       id: 3,
       title: "Commercial Solar Systems",
       description: "Large-scale solar installations designed for businesses, offices, and industrial facilities to reduce operational costs.",
-      image: "/Services/Gemini_Generated_Image_p0ki6dp0ki6dp0ki.png",
+      image: "/services/Gemini_Generated_Image_p0ki6dp0ki6dp0ki.png",
       features: ["Custom designs", "High capacity", "Cost reduction", "ROI optimization"]
     },
     {
       id: 4,
       title: "Residential Solar Power",
       description: "Complete home solar solutions that provide clean, renewable energy while significantly reducing your electricity bills.",
-      image: "/Services/Gemini_Generated_Image_u40pnfu40pnfu40p.png",
+      image: "/services/Gemini_Generated_Image_u40pnfu40pnfu40p.png",
       features: ["Energy independence", "Bill reduction", "Professional installation", "Maintenance included"]
     },
     {
       id: 5,
       title: "Solar Maintenance & Support",
       description: "Comprehensive maintenance and support services to ensure your solar system operates at peak performance year-round.",
-      image: "/Services/Gemini_Generated_Image_yaq8opyaq8opyaq8.png",
+      image: "/services/Gemini_Generated_Image_yaq8opyaq8opyaq8.png",
       features: ["Regular inspections", "Performance monitoring", "Priority support", "Preventive maintenance"]
     }
   ];
