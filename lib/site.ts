@@ -1,8 +1,8 @@
 export const SITE = {
   name: "SunSpark Energy",
   legalName: "SunSpark Energy",
-  domain: "https://www.sunsparkenergy.com.ng",
-  url: "https://www.sunsparkenergy.com.ng",
+  domain: "https://sunsparkenergy.com.ng",
+  url: "https://sunsparkenergy.com.ng",
   locale: "en_NG",
   lang: "en-NG",
 
@@ -12,9 +12,9 @@ export const SITE = {
   longDescription:
     "SunSpark Energy designs, installs, and maintains professional solar systems for residential, commercial, and industrial clients across Nigeria. We deliver dependable electricity, cut energy costs, and reduce reliance on unstable power.",
 
- phone: "+2349029355082",
-phoneDisplay: "+234 902 935 5082",
-whatsapp: "2349029355082",
+  phone: "+2349029355082",
+  phoneDisplay: "+234 902 935 5082",
+  whatsapp: "2349029355082",
   email: "sunsparkenergy@proton.me",
 
   address: {
