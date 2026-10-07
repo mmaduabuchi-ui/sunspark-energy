@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const COMPANY_NAME = "SunSpark Energy";
+import { SITE } from "@/lib/site";
 
 export default function Footer() {
   const quickLinks = [
@@ -13,11 +12,11 @@ export default function Footer() {
   ];
 
   const serviceLinks = [
-    "Residential Solar",
-    "Commercial Solar",
-    "Battery Storage",
-    "Maintenance & Support",
-    "Energy Consultation",
+    { label: "Residential Solar", href: "/services#service-4" },
+    { label: "Commercial Solar", href: "/services#service-3" },
+    { label: "Battery Storage", href: "/services#service-2" },
+    { label: "Maintenance & Support", href: "/services#service-5" },
+    { label: "Energy Consultation", href: "/services#service-1" },
   ];
 
   const year = new Date().getFullYear();
@@ -30,10 +29,11 @@ export default function Footer() {
           <div>
             <Image
               src="/images/moseslogo.png"
-              alt="SunSpark Energy"
+              alt={`${SITE.name} — solar installation company in Nigeria`}
               width={150}
               height={60}
               className="h-14 w-auto object-contain mb-4"
+              style={{ width: "auto", height: "auto" }}
             />
             <p className="prose-on-dark-muted text-sm mb-5">
               Professional solar energy solutions for homes and businesses
@@ -42,18 +42,20 @@ export default function Footer() {
 
             <div className="space-y-2 text-sm">
               <a
-                href="tel:+2349029355082"
+                href={`tel:${SITE.phone}`}
                 className="block text-navy-100 hover:text-solar-400 transition-colors"
               >
-                +234 902 935 5082
+                {SITE.phoneDisplay}
               </a>
               <a
-                href="mailto:sunsparkenergy@proton.me"
+                href={`mailto:${SITE.email}`}
                 className="block text-navy-100 hover:text-solar-400 transition-colors"
               >
-                sunsparkenergy@proton.me
+                {SITE.email}
               </a>
-              <p className="text-navy-100">Port Harcourt, Nigeria</p>
+              <p className="text-navy-100">
+                {SITE.address.city}, {SITE.address.countryName}
+              </p>
             </div>
           </div>
 
@@ -83,8 +85,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               {serviceLinks.map((service) => (
-                <li key={service} className="text-navy-100">
-                  {service}
+                <li key={service.label}>
+                  <Link
+                    href={service.href}
+                    className="text-navy-100 hover:text-solar-400 transition-colors"
+                  >
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -125,7 +132,7 @@ export default function Footer() {
       <div className="border-t border-navy-800">
         <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-navy-100">
           <p>
-            © {year} {COMPANY_NAME}. All rights reserved.
+            © {year} {SITE.name}. All rights reserved.
           </p>
           <div className="flex gap-5">
             <Link
