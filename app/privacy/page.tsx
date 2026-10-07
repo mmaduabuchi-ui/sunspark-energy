@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SunSpark Energy",
+  title: "Privacy Policy",
   description:
     "How SunSpark Energy collects, uses, and protects your personal information in compliance with the Nigeria Data Protection Act (NDPA).",
+  alternates: { canonical: "/privacy" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Privacy Policy | SunSpark Energy",
+    description:
+      "How SunSpark Energy collects, uses, and protects your personal information in compliance with the Nigeria Data Protection Act (NDPA).",
+    url: "/privacy",
+  },
 };
 
 const LAST_UPDATED = "1 January 2026";
 const COMPANY_NAME = "SunSpark Energy";
 const CONTACT_EMAIL = "sunsparkenergy@proton.me";
 const CONTACT_PHONE = "+234 902 935 5082";
+const CONTACT_PHONE_TEL = "+2349029355082";
 const JURISDICTION = "Port Harcourt, Rivers State, Nigeria";
 
 const sections = [
@@ -34,6 +44,13 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
     <main>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Privacy Policy", url: "/privacy" },
+        ]}
+      />
+
       {/* ================= HERO ================= */}
       <section className="bg-navy-800 on-dark py-16 md:py-20">
         <div className="container-x">
@@ -492,7 +509,7 @@ export default function PrivacyPolicy() {
                 </li>
                 <li>
                   <strong>Phone:</strong>{" "}
-                  <a href="tel:+2349029355082">{CONTACT_PHONE}</a>
+                  <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE}</a>
                 </li>
                 <li>
                   <strong>Address:</strong> Port Harcourt, Nigeria

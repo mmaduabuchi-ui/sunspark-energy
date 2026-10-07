@@ -1,5 +1,25 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  BreadcrumbJsonLd,
+  ServiceJsonLd,
+} from "@/components/StructuredData";
+import { SITE } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Solar Services — Installation, Maintenance & Consultation",
+  description:
+    "Explore SunSpark Energy services: bifacial solar panels, smart solar systems, commercial installations, residential solar, and maintenance across Nigeria.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Solar Services | SunSpark Energy",
+    description:
+      "Bifacial panels, smart solar, commercial and residential systems, and maintenance across Nigeria.",
+    url: "/services",
+    images: [{ url: "/services/bifacialsolar-panel.jpg" }],
+  },
+};
 
 const services = [
   {
@@ -100,6 +120,23 @@ const steps = [
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+        ]}
+      />
+
+      {services.map((service) => (
+        <ServiceJsonLd
+          key={service.id}
+          name={service.title}
+          description={service.description}
+          url={`${SITE.url}/services#service-${service.id}`}
+          image={`${SITE.url}${service.image}`}
+        />
+      ))}
+
       {/* ================= HERO ================= */}
       <section className="bg-navy-800 on-dark py-16 md:py-20">
         <div className="container-x text-center">
@@ -119,13 +156,14 @@ export default function ServicesPage() {
             {services.map((service) => (
               <article
                 key={service.id}
-                className="card card-hover overflow-hidden flex flex-col"
+                id={`service-${service.id}`}
+                className="card card-hover overflow-hidden flex flex-col scroll-mt-24"
               >
                 {/* Image */}
                 <div className="relative h-52 w-full bg-ink-100">
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} — SunSpark Energy solar service in Nigeria`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"

@@ -1,5 +1,21 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "About Us — Solar Company in Nigeria",
+  description:
+    "Learn about SunSpark Energy — a Nigerian solar company delivering reliable residential, commercial, and industrial solar systems since 2019. 150+ installations, 2MW+ capacity.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About SunSpark Energy | Solar Company in Nigeria",
+    description:
+      "Nigerian solar company delivering reliable residential, commercial, and industrial solar systems since 2019.",
+    url: "/about",
+    images: [{ url: "/images/photo_2026-08-26_01-07-14.jpg" }],
+  },
+};
 
 const values = [
   {
@@ -111,6 +127,13 @@ const credentials = [
 export default function About() {
   return (
     <main>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "About", url: "/about" },
+        ]}
+      />
+
       {/* ================= HERO ================= */}
       <section className="bg-navy-800 on-dark py-16 md:py-20">
         <div className="container-x">
